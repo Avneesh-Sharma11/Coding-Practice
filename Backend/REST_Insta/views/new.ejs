@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: beige;
+        }
+        .add-btn {
+            width: 180px;
+            display: block;
+            margin: 0 30px;
+            padding: 10px 20px;
+            background: #28a745;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .add-btn a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .add-btn:hover {
+            background: #218838;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px;
+        }
+
+        form {
+            width: 400px;
+            margin: 30px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            margin-top: 15px;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background: #007bff;
+            color: #fff;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Add new Blog</h1>
+    <form method="post" action="/posts">
+        <label for="">Enter the UserName</label>
+        <input type="text" name="username" placeholder="Enter the UserName">
+        <label for="">Uplode Image</label>
+        <input type="text" name="img" placeholder="Enter the image URL">
+        <label for="">Content</label>
+        <textarea name="content" id=""></textarea>
+        <label for="">Password</label>
+        <input type="password" name="password" placeholder="Enter the Password">
+        <br>
+        <br>
+        <button class="add-btn">Submit</button>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color:beige;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Profile Card Container */
+        body>div,
+        .profile-card {
+            /* Wrap your body content in a div for best results */
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            /* Perfect size for laptop viewing */
+            text-align: center;
+        }
+
+        h1 {
+            color: #1c1e21;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Profile Image */
+        img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            /* Circular image */
+            object-fit: cover;
+            border: 4px solid #007bff;
+            margin-bottom: 1rem;
+        }
+
+        /* Content Paragraph */
+        p {
+            color: #4b4f56;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        /* Button & Form Layout */
+        form {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        button {
+            padding: 10px 25px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.1s ease;
+        }
+
+        /* Edit Button Style */
+        form[action*="edit"] button {
+            background-color: #007bff;
+            color: white;
+        }
+
+        form[action*="edit"] button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Delete Button Style */
+        form[action*="delete"] button {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        form[action*="delete"] button:hover {
+            background-color: #a71d2a;
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="profile-card">
+        <h1>This Profile Belongs to @<%= user.username%>
+        </h1>
+        <img src="<%= user.img%>" alt="Profile Picture">
+        <p>
+            <%= user.content%>
+        </p>
+        <form method="get" action="edit">
+            <button>Edit</button>
+        </form>
+        <form method="get" action="delete">
+            <button>Delete</button>
+        </form>
+    </div>
+</body>
+
+</html>

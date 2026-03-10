@@ -1,0 +1,35 @@
+<% layout("layouts/boilerplate") -%>
+
+    <body>
+
+        <div class="form-container">
+            <h2>Create Listing</h2>
+
+            <form action="/listings" method="post" class="needs-validation" novalidate>
+
+                <label for="title">Title</label>
+                <input id="title" name="list[title]" class="form-control" type="text" required>
+                <div class="invalid-feedback">Please enter title</div>
+
+                <label for="description">Description</label>
+                <input id="description" name="list[description]" class="form-control" type="text" required>
+                <div class="invalid-feedback">Please enter description</div>
+
+                <label for="image">Image URL</label>
+                <input id="image" name="list[image]" class="form-control" type="url">
+
+                <label for="price">Price</label>
+                <input id="price" name="list[price]" class="form-control" type="number" required>
+
+                <label for="location">Location</label>
+                <input id="location" name="list[location]" class="form-control" type="text" required>
+
+                <label for="country">Country</label>
+                <input id="country" name="list[country]" class="form-control" type="text" required>
+
+                <button class="btn btn-dark mt-3" type="submit">Submit</button>
+
+            </form>
+        </div>
+
+    </body>

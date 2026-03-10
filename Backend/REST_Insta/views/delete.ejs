@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Ready for delete Profile: @ <%= user.username %></h1>
+    <form method="post" action="/posts/<%=user.id%>?_method=DELETE">
+        <label for="">Enter the password</label>
+        <input type="password" placeholder="Enter the password">
+        <button>Delete</button>
+    </form>
+</body>
+
+</html>

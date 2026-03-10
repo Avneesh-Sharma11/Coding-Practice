@@ -1,0 +1,289 @@
+.navbar{
+    height: 5rem;
+}
+.fa-compass{
+    color: #fe424d;
+    font-size: 2rem;
+}
+.nav-link{
+    color: #222222 !important;
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body{
+    background:#f5f7fa;
+}
+
+/* main container */
+.main{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    padding:30px 0;
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+/* card */
+.card{
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 4px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* image */
+.card{
+    max-width:600px;
+    margin:40px auto;
+}
+
+.card img{
+    width:100%;
+    height:auto;
+    object-fit:contain;
+}
+
+/* content */
+.content{
+    padding:18px;
+}
+
+.content h1{
+    font-size:20px;
+    margin-bottom:8px;
+}
+
+.content h1 a{
+    text-decoration:none;
+    color:#333;
+}
+
+.content h1 a:hover{
+    color:#0077ff;
+}
+
+/* price */
+.price{
+    font-size:18px;
+    font-weight:600;
+    color:#2e7d32;
+    margin-bottom:6px;
+}
+
+/* location */
+.location{
+    font-size:14px;
+    color:#777;
+    margin-bottom:10px;
+}
+
+/* description */
+.content p{
+    font-size:14px;
+    color:#555;
+    margin-bottom:15px;
+    line-height:1.5;
+}
+
+/* buttons */
+.actions{
+    display:flex;
+    gap:10px;
+}
+
+button{
+    border:none;
+    padding:8px 14px;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:14px;
+    transition:0.2s;
+}
+
+.delete-btn{
+    background:#e53935;
+    color:white;
+}
+
+.delete-btn:hover{
+    background:#c62828;
+}
+
+.edit-btn{
+    background:#1976d2;
+    color:white;
+}
+
+.edit-btn:hover{
+    background:#0d47a1;
+}
+
+/* responsive */
+@media (max-width:600px){
+
+    .card img{
+        height:180px;
+    }
+
+    .content h1{
+        font-size:18px;
+    }
+
+}
+
+/* page background */
+body{
+    background:#8a8b8c;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* add + edit form container */
+.form-container,
+.container{
+    max-width:600px;
+    margin:auto;
+    margin-bottom: 20px;
+    background:white;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.08);
+}
+
+/* headings */
+.form-container h2,
+.container h2{
+    text-align:center;
+    margin-bottom:15px;
+    color:#333;
+}
+
+.container p{
+    text-align:center;
+    color:#777;
+    margin-bottom:20px;
+    font-size:14px;
+}
+
+/* labels */
+.form-container label,
+.container label{
+    display:block;
+    margin-top:15px;
+    margin-bottom:5px;
+    font-weight:500;
+    color:#444;
+}
+
+/* inputs + textarea */
+.form-container input,
+.container input,
+.container textarea{
+    width:100%;
+    padding:10px;
+    border:1px solid #ddd;
+    border-radius:6px;
+    font-size:14px;
+    outline:none;
+    transition:0.2s;
+}
+
+/* focus effect */
+.form-container input:focus,
+.container input:focus,
+.container textarea:focus{
+    border-color:#4f46e5;
+    box-shadow:0 0 4px rgba(79,70,229,0.2);
+}
+
+/* textarea */
+.container textarea{
+    min-height:100px;
+    resize:vertical;
+}
+
+/* submit button */
+.submit{
+    width:100px;
+    margin-top:20px;
+    padding:12px;
+    border:none;
+    border-radius:6px;
+    background:#4f46e5;
+    color:white;
+    font-size:15px;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.submit:hover{
+    background:#4338ca;
+}
+
+/* mobile responsive */
+@media(max-width:600px){
+
+    .form-container,
+    .container{
+        margin:30px 15px;
+        padding:25px;
+    }
+
+}
+
+
+/* HOME */
+.hero{
+    height:90vh;
+    background-image:url("https://images.unsplash.com/photo-1501785888041-af3ef285b470");
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+.hero-content{
+    background:rgba(0,0,0,0.45);
+    padding:40px;
+    border-radius:10px;
+    color:white;
+}
+
+.hero-content h1{
+    font-size:50px;
+    margin-bottom:10px;
+}
+
+.hero-content p{
+    font-size:18px;
+    margin-bottom:20px;
+}
+
+.explore-btn{
+    padding:12px 25px;
+    background:#ff5a5f;
+    color:white;
+    text-decoration:none;
+    border-radius:6px;
+    font-size:16px;
+}
+
+.explore-btn:hover{
+    background:#e0484d;
+}

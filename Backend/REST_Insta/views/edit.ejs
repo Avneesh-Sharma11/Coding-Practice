@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* General Layout */
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color:beige;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        /* The Wrapper Div */
+        body>div {
+            background: #ffffff;
+            width: 90%;
+            max-width: 550px;
+            /* Optimized for laptop viewing */
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #2d3436;
+            font-size: 1.6rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #f1f1f1;
+            padding-bottom: 1rem;
+        }
+
+        /* Form Alignment */
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Label Styling */
+        label {
+            font-weight: 600;
+            color: #636e72;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Input & Textarea Styling */
+        .img,
+        .password,
+        .content {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1.5px solid #dfe6e9;
+            border-radius: 8px;
+            font-size: 1rem;
+            color: #2d3436;
+            transition: all 0.3s ease;
+        }
+
+        .content {
+            height: 120px;
+            resize: vertical;
+            /* Allows user to expand height if needed */
+            font-family: inherit;
+        }
+
+        /* Focus states for better UX */
+        .img:focus,
+        .password:focus,
+        .content:focus {
+            outline: none;
+            border-color: #0984e3;
+            box-shadow: 0 0 0 3px rgba(9, 132, 227, 0.1);
+        }
+
+        /* Submit Button */
+        button {
+            background-color: #0984e3;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #0773c5;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        /* Placeholder styling */
+        ::placeholder {
+            color: #b2bec3;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>Here you can edit your Profile for @<%= user.username %>
+        </h1>
+        <form method="post" action="/posts/<%= user.id %>?_method=PATCH">
+            <label for="">Update Pfp</label>
+            <input class="img" type="text" name="img" value="<%= user.img %>">
+            <label for="">Update Content</label>
+            <textarea class="content" name="content" id=""><%= user.content %></textarea>
+            <label for="">Conform Password</label>
+            <input class="password" type="password" name="password" placeholder="Enter the password">
+            <button>Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>

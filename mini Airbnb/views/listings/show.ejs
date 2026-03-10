@@ -1,0 +1,32 @@
+<% layout("layouts/boilerplate") -%>
+<body>
+
+    <div class="card">
+        <img src="<%= user.image %>" alt="Listing Image">
+
+        <div class="content">
+            <h1><%= user.tital %></h1>
+
+            <div class="price">
+                ₹ <%= user.price.toLocaleString("en-IN") %>
+            </div>
+
+            <div class="location">
+                <%= user.location %> | <%= user.country %>
+            </div>
+
+            <p><%= user.description %></p>
+
+            <div class="actions">
+                <form method="post" action="/listings/<%= user._id %>?_method=DELETE">
+                    <button class="delete-btn">Delete</button>
+                </form>
+
+                <form method="get" action="/listings/<%= user._id %>/edit">
+                    <button class="edit-btn">Edit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>

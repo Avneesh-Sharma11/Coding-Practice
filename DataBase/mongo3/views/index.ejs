@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mini Whatsapp</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: #ece5dd;
+            /* WhatsApp background */
+            padding: 20px;
+        }
+
+        /* Heading */
+        h3 {
+            text-align: center;
+            margin-bottom: 15px;
+            color: #075e54;
+        }
+
+        /* New Chat button */
+        .NewF {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #25d366;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background-color: #1ebe5d;
+        }
+
+        /* Chats container */
+        .chats {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        /* Single chat card */
+        .chat {
+            background-color: white;
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* From / To text */
+        .chat p {
+            font-size: 13px;
+            color: #555;
+        }
+
+        /* Message bubble */
+        .msg {
+            background-color: #dcf8c6;
+            padding: 10px;
+            border-radius: 8px;
+            margin: 8px 0;
+        }
+
+        .msg p {
+            font-size: 14px;
+            color: #000;
+        }
+
+        /* Divider */
+        hr {
+            border: none;
+            border-top: 1px solid #ddd;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>All Chats</h3>
+    <form class="NewF" method="get" action="chats/new">
+        <button>New Chat</button>
+    </form>
+
+    <div class="chats">
+        <% for(let chat of chats){ %>
+            <div class="chat">
+                <p>From : <%= chat.from %>
+                </p>
+                <div class="msg">
+                    <p>
+                        <%= chat.msg %>
+                    </p>
+                </div>
+                <p>To : <%= chat.to %></p>
+                <br>
+                <p><%= chat.created_at.toString().split(" ")[4] %></p>
+                <p><%= chat.created_at.toString().split(" ").slice(0,4).join(" ") %></p>
+                <form method="get" action="chats/<%=chat._id %>/edit">
+                    <button>Edit</button>
+                </form>
+                <form method="get" action="chats/<%= chat._id %>/delete">
+                    <button>Delete</button>
+                </form>
+            </div>
+            <hr>
+            <%} %>
+    </div>
+</body>
+
+</html>

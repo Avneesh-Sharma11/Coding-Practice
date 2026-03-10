@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Posts</title>
+
+    <style>
+        h1{ 
+            text-align: center;
+            color: maroon;
+        }
+        h3{
+            text-align: center;
+        }
+        p{
+            text-align: center;
+        }
+        button{
+            text-align: center;
+        }
+        .po{
+            padding: 20px;
+            background-color: antiquewhite;
+        }
+        body{
+            width: 400px;
+        }
+    </style>
+</head>
+
+<body>
+        <h1>Quora Posts</h1>
+        <button><a href="http://localhost:8080/posts/new">Add new post</a></button>
+    <div>
+
+        <% for(let post of posts){ %>
+            <br>
+            <div class="po">
+                <h3>@<%= post.username %></h3>
+                <p><%= post.content %></p>
+                <a href="http://localhost:8080/posts/<%=post.id %>">See more</a>
+                <a href="http://localhost:8080/posts/<%=post.id %>/edit">Edit</a>
+                <form method="post" action="/posts/<%= post.id %>?_method=DELETE">
+                    <button>Delete</button>
+                </form>
+            </div>
+            <br>
+        <%}%>
+    </div>
+</body>
+
+</html>
