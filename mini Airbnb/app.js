@@ -7,12 +7,13 @@ const ejsMate = require('ejs-mate')
 const methodOverride = require('method-override')
 const asyncWrap = require('./utils/asyncWrap.js')
 const MyError = require('./utils/ExpressErr.js')
-
+const { listingSchema } = require('./schema.js')
 
 app.use(methodOverride('_method'))
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"))
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.engine('ejs', ejsMate);
 app.use(express.static(path.join(__dirname, "/public")))
 
@@ -33,7 +34,14 @@ async function main() {
 //     sample.save();
 //     res.send('success') 
 // })
-
+const validateListing = (req, res, next) => {
+    let { error } = listingSchema.validate(req.body)
+    if (error) {
+        throw new MyError(400, error)
+    } else {
+        next()
+    }
+}
 app.get('/', (req, res) => {
     res.render('listings/home.ejs')
 })
@@ -45,10 +53,8 @@ app.get('/listings', async (req, res) => {
 app.get('/listings/new', (req, res) => {
     res.render('listings/new.ejs')
 })
-app.post('/listings', (req, res) => {
-    if(!req.body.list){
-        throw new MyError(400,"Send valid data for listing");
-    }
+app.post('/listings', validateListing, (req, res, next) => {
+
     const NewList = new Listing(req.body.list)
     NewList.save();
     res.redirect("/listings")
@@ -86,7 +92,7 @@ app.use((req, res, next) => {
 });
 app.use((err, req, res, next) => {
     let { statusCode = 500, message = "Some error Occured" } = err
-    console.log(err);
+    // console.log(err);
     res.status(statusCode).send(message);
 });
 app.listen(8080, () => {
