@@ -1,3 +1,8 @@
+// 6 Rules of Thumb for MongoDB Schema Design
+// https://www.mongodb.com/company/blog/mongodb/6-rules-of-thumb-for-mongodb-schema-design
+
+
+
 const mongoose = require('mongoose');
 
 main().then(() => console.log('Connection Successful'))
