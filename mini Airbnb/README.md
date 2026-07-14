@@ -18,7 +18,7 @@ The application also includes **error handling using middleware and Bootstrap al
 - Bootstrap
 - JavaScript
 
----
+------
 
 ## ✨ Features
 - View all listings
