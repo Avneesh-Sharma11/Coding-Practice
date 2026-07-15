@@ -30,7 +30,7 @@ The application also includes **error handling using middleware and Bootstrap al
 - Error handling with middleware
 - Bootstrap styled UI
 
----
+------
 ## 📂 Folder Structure
     mini-airbnb
     │
